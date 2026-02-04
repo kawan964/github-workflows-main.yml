@@ -1,4 +1,4 @@
-name: Run Telegram Bot
+name: ProSpy_Auto_Run
 on:
   push:
     branches: [ main ]
