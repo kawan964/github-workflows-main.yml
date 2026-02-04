@@ -1,0 +1,30 @@
+name: Run Telegram Bot
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *' # بۆ ئەوەی هەر ٦ سەعات جارێک خۆی نوێ بکاتەوە
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pyrogram tgcrypto
+
+      - name: Run Bot
+        run: python ProSpy.py
+        env:
+          API_ID: 38225812
+          API_HASH: "aff3c308c587f18a5975910fbcf68366"
+          BOT_TOKEN: "8424748782:AAG0VELUlOfabsayVic2SpUAR-hWsh-nnf0"
